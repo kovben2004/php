@@ -16,15 +16,15 @@ require("includes/conn.inc.php");
 			<?php
 			$sql = "
 				SELECT
-					telnum1.*,
-					tbl_user.userName
-				FROM telnum1
-				INNER JOIN tbl_user ON tbl_user.ID=telnum1.userID
+					tbl_telnos.*,
+					tbl_user.Emailadresse
+				FROM tbl_telnos
+				INNER JOIN tbl_user ON tbl_user.IDUser=tbl_telnos.FIDUser
 			";
-			$Users = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
-			while($telefonnummer = $Users->fetch_object()) {
+			$telnos = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
+			while($telno = $telnos->fetch_object()) {
 				echo('
-					<li>' . $telefonnummer->Telnum1 . ': ' . $telefonnummer->userName . '</li>
+					<li>' . $telno->Telno . ': ' . $telno->Emailadresse . '</li>
 				');
 			}
 			?>
@@ -37,18 +37,18 @@ require("includes/conn.inc.php");
 			$sql = "
 				SELECT
 					tbl_user.*,
-					telnum1.Telnum1
+					tbl_telnos.Telno
 				FROM tbl_user
-				LEFT JOIN telnum1 ON telnum1.userID=tbl_user.ID
+				LEFT JOIN tbl_telnos ON tbl_telnos.FIDUser=tbl_user.IDUser
 			";
 			$userliste = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
 			while($user = $userliste->fetch_object()) {
 				echo('
-					<li>' . $user->userName . ': ' . $user->Telnum1 . '</li>
+					<li>' . $user->Emailadresse . ': ' . $user->Telno . '</li>
 				');
 			}
 			*/
-			// ---- pro User eine eigene Abfrage für seine zugewiesenen Users: ----
+			// ---- pro User eine eigene Abfrage für seine zugewiesenen Telnos: ----
 			$sql = "
 				SELECT
 					*
@@ -57,23 +57,23 @@ require("includes/conn.inc.php");
 			$userliste = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
 			while($user = $userliste->fetch_object()) {
 				echo('
-					<li>' . $user->userName . ':
+					<li>' . $user->Emailadresse . ':
 						<ul>
 				');
 				
-				// ---- Zugriff auf die Users des Users: ----
+				// ---- Zugriff auf die Telnos des Users: ----
 				$sql = "
 					SELECT
 						*
-					FROM tbl_user
+					FROM tbl_telnos
 					WHERE(
-						ID=" . $user->ID . "
+						FIDUser=" . $user->IDUser . "
 					)
 				";
-				$Users = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
-				while($telefonnummer = $Users->fetch_object()) {
+				$telnos = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
+				while($telno = $telnos->fetch_object()) {
 					echo('
-						<li>' . $telefonnummer->Telnum1 . '</li>
+						<li>' . $telno->Telno . '</li>
 					');
 				}
 				// -------------------------------------------
@@ -85,28 +85,28 @@ require("includes/conn.inc.php");
 			}
 			?>
 		</ul>
-		<h3>Zwei getrennte DB-Anfragen: Problem, da alle Users im Speicher abgelegt werden müssen</h3>
+		<h3>Zwei getrennte DB-Anfragen: Problem, da alle Telnos im Speicher abgelegt werden müssen</h3>
 		<ul>
 			<?php
-			// ---- sämtliche Users ermitteln (unabhängig vom User): ----
-			$arr_Users = [];
+			// ---- sämtliche Telnos ermitteln (unabhängig vom User): ----
+			$arr_telnos = [];
 			$sql = "
 				SELECT
 					*
-				FROM Telum1
+				FROM tbl_telnos
 			";
-			$Users = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
-			while($telefonnummer =  $Users->fetch_object()) {
-				$userID = $telefonnummer->ID;
-				if(!isset($arr_Users[$userID])) {
-					$arr_Users[$userID] = [];
+			$telnos = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
+			while($telno =  $telnos->fetch_object()) {
+				$fidUser = $telno->FIDUser;
+				if(!isset($arr_telnos[$fidUser])) {
+					$arr_telnos[$fidUser] = [];
 				}
-				$arr_Users[$userID][] = $telefonnummer->Telnum1;
+				$arr_telnos[$fidUser][] = $telno->Telno;
 			}
-			ta($arr_Users);
+			ta($arr_telnos);
 			// ------------------------------------------------------------
 			
-			// ---- sämtliche User ausgeben und je User auf seine gespeicherten Users zugreifen: ----
+			// ---- sämtliche User ausgeben und je User auf seine gespeicherten Telnos zugreifen: ----
 			$sql = "
 				SELECT
 					*
@@ -115,15 +115,15 @@ require("includes/conn.inc.php");
 			$userliste = $conn->query($sql) or die("Fehler in der Query: " . $conn->error . "<br>" . $sql);
 			while($user = $userliste->fetch_object()) {
 				echo('
-					<li>' . $user->userName . ':
+					<li>' . $user->Emailadresse . ':
 						<ul>
 				');
 				
-				// ---- Users des Users: ----
-				if(isset($arr_Users[$user->ID])) {
-					for($i=0; $i<count($arr_Users[$user->ID]); $i++) {
+				// ---- Telnos des Users: ----
+				if(isset($arr_telnos[$user->IDUser])) {
+					for($i=0; $i<count($arr_telnos[$user->IDUser]); $i++) {
 						echo('
-							<li>' . $arr_Users[$user->ID][$i] . '</li>
+							<li>' . $arr_telnos[$user->IDUser][$i] . '</li>
 						');
 					}
 				}

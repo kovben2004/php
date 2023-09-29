@@ -1,0 +1,9 @@
+Aufgabenstellung:
+Geben Sie aus der User-Tabelle sämltliche Datensätze (sortiert nach Nach- und Vornamen) in Form einer numerierten HTML-Liste aus, und zwar in der nachfolgenden Art:
+1. uwe.mutz@syne.at (test123): Mutz Uwe (ID=1), geboren 1972-10-17, registiert 2023-02-28 12:31:32 Uhr
+2. ...
+
+Das Muster ist also wie folgt:
+# {Emailadresse} ({Passwort}): {Nachname} {Vorname} (ID={IDUser}), geboren {GebDatum}, registriert {RegZeitpunkt}
+
+Schaffen Sie eine Möglichkeit, dass der User nach dem Nachnamen filtern kann (entweder mittels Gleichheit oder mittels LIKE)

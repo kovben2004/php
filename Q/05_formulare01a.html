@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<title>Formulare</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<form method="get">
+			<fieldset>
+				<legend>Personenbezogene Daten</legend>
+				<label>
+					Ihr Vorname:
+					<input type="text" name="VN">
+				</label>
+				
+				<label for="Nachname">Ihr Nachname:</label>
+				<input type="text" name="NN" required id="Nachname">
+				
+				<label>
+					<input type="radio" name="Geschlecht" value="weiblich" checked>
+					weiblich
+				</label>
+				<label>
+					<input type="radio" name="Geschlecht" value="männlich">
+					männlich
+				</label>
+				<label>
+					<input type="radio" name="Geschlecht" value="divers">
+					divers
+				</label>
+				
+				<input type="date" name="GD" placeholder="Ihr Geburtsdatum" value="1972-10-17">
+				<select name="GebLand">
+					<option value="at">Österreich</option>
+					<option value="it">Italien</option>
+					<option value="es" selected>Spanien</option>
+				</select>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Logininformationen</legend>
+				<input type="email" name="E" placeholder="Ihre Emailadresse" required>
+				<input type="password" name="P" placeholder="Ihr Passwort" required>
+			</fieldset>
+			
+			
+			<textarea name="Nachricht" placeholder="Ihre Nachricht an uns"></textarea>
+						
+			<label>
+				<input type="checkbox" name="AGB" value="gelesen" required>
+				Ich akzeptiere die AGBs
+			</label>
+			<input type="submit" value="abschicken">
+			<!--<button type="submit">ab<strong><br>schick<br></strong>en</button>-->
+		</form>
+	</body>
+</html>

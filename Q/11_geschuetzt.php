@@ -24,7 +24,7 @@ if(count($_POST)>0) {
 	}
 }
 
-if(!(isset($_SESSION["eingeloggt"]) && $_SESSION["eingeloggt"]===true)) {
+if(!(isset($_SESSION["eingeloggt"]) || $_SESSION["eingeloggt"]===true)) {
 	header("Location: 11_login02.php");
 }
 ?>

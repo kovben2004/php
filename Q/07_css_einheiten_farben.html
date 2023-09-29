@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<title>CSS: Einheiten und Farben</title>
+		<meta charset="utf-8">
+		<style>
+			div {
+				width:6em;
+				height:6em;
+				margin:1em;
+				padding:0.5em;
+				border-radius:0.5em;
+				
+				border:1px solid grey;
+				box-shadow:0 0 1em blue;
+				
+				display:inline-block;
+			}
+			
+			.dunkel {
+				color:white;
+			}
+			
+			#blau0 {
+				background-color:blue;
+			}
+			#blau1 {
+				background-color:rgb(0,0,255);
+			}
+			#blau2 {
+				background-color:#0000ff;
+			}
+			#blau3 {
+				background-color:hsl(240,100%,50%);
+			}
+			#blau4 {
+				background-color:rgba(0,0,255,1);
+			}
+			#blau5 {
+				background-color:hsla(240,100%,50%,1);
+			}
+			#farbe {
+				background-color:hsl(153,80%,40%);
+			}
+			#farbe2 {
+				background-color:hsl(153,100%,50%);
+			}
+			#rot0 {
+				background-color:hsl(0,100%,40%);
+			}
+			#rot1 {
+				background-color:hsl(0,100%,35%);
+			}
+			#rot2 {
+				background-color:hsl(0,100%,30%);
+			}
+			#rot3 {
+				background-color:hsl(0,100%,25%);
+			}
+			#rot4 {
+				background-color:hsl(0,100%,20%);
+			}
+			#rot5 {
+				background-color:hsl(0,100%,15%);
+				box-shadow:0.5em 0.5em 0.3em black;
+			}
+			h1 {
+				text-shadow:1px 1px 0 red; /* #cccccc */
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Farben</h1>
+		<div id="blau0" class="dunkel">Blau</div>
+		<div id="blau1" class="dunkel">Blau</div>
+		<div id="blau2" class="dunkel">Blau</div>
+		<div id="blau3" class="dunkel">Blau</div>
+		<div id="blau4" class="dunkel">Blau</div>
+		<div id="blau5" class="dunkel">Blau</div>
+		<div id="farbe" class="dunkel">Was ist das?</div>
+		<div id="farbe2" class="dunkel">Was ist das?</div>
+		<div id="rot0">Rot</div>
+		<div id="rot1">Rot</div>
+		<div id="rot2">Rot</div>
+		<div id="rot3">Rot</div>
+		<div id="rot4">Rot</div>
+		<div id="rot5">Rot</div>
+	</body>
+</html>

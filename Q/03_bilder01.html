@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<title>Bilderen</title>
+		<meta charset="utf-8">
+		<style>
+			img, picture {
+				max-width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Bilder</h1>
+		<h2>Einbettung mittels img</h2>
+		<img src="bilder/640/tree_640.jpg" alt="...">
+		<p>&copy; Pixabay | www.pixabay.com | <a href="https://pixabay.com/de/photos/baum-see-sterne-reflexion-wasser-838667/" target="_blank">zur Bildquelle</a></p>
+		<h2>Einbettung mittels picture</h2>
+		<picture>
+			<source srcset="bilder/640/tree_640.jpg" media="(max-width:640px)">
+			<source srcset="bilder/1280/tree_1280.jpg" media="(max-width:1280px)">
+			<img src="bilder/1920/tree_1920.jpg" alt="Ich bin der alternative Text">
+		</picture>
+		<p>&copy; Pixabay | www.pixabay.com | <a href="https://pixabay.com/de/photos/baum-see-sterne-reflexion-wasser-838667/" target="_blank">zur Bildquelle</a></p>
+		<h2>Bild mit Bildunter- bzw. überschrift</h2>
+		<figure>
+			<img src="bilder/640/tree_640.jpg" alt="...">
+			<figcaption>&copy; Pixabay | www.pixabay.com | <a href="https://pixabay.com/de/photos/baum-see-sterne-reflexion-wasser-838667/" target="_blank">zur Bildquelle</a></figcaption>
+		</figure>
+		<figure>
+			<picture>
+				<source srcset="bilder/640/tree_640.jpg" media="(max-width:640px)">
+				<source srcset="bilder/1280/tree_1280.jpg" media="(max-width:1280px)">
+				<img src="bilder/1920/tree_1920.jpg" alt="Ich bin der alternative Text">
+			</picture>
+			<figcaption>&copy; Pixabay | www.pixabay.com | <a href="https://pixabay.com/de/photos/baum-see-sterne-reflexion-wasser-838667/" target="_blank">zur Bildquelle</a></figcaption>
+		</figure>
+	</body>
+</html>

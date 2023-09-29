@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<title>Formulare</title>
+		<meta charset="utf-8">
+		<style>
+			label, input, textarea {
+				display:block;
+			}
+			input, textarea {
+				width:100%;
+				padding:5px 30px;
+				border-radius:5px;
+				box-sizing:border-box;
+				border:1px solid grey;
+			}
+			div {
+				background-color:yellow;
+				padding:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<form method="get">
+			<fieldset>
+				<legend>Personenbezogene Daten</legend>
+				<label>
+					Ihr Vorname:
+					<div><input type="text" name="VN"></div>
+				</label>
+				
+				<label for="Nachname">Ihr Nachname:</label>
+				<input type="text" name="NN" required id="Nachname">
+				
+				<input type="radio" name="Geschlecht" value="weiblich" checked>
+				<input type="radio" name="Geschlecht" value="männlich">
+				<input type="radio" name="Geschlecht" value="divers">
+				
+				<input type="date" name="GD" placeholder="Ihr Geburtsdatum" value="1972-10-17">
+				<select name="GebLand">
+					<option value="at">Österreich</option>
+					<option value="it">Italien</option>
+					<option value="es" selected>Spanien</option>
+				</select>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Logininformationen</legend>
+				<input type="email" name="E" placeholder="Ihre Emailadresse" required>
+				<input type="password" name="P" placeholder="Ihr Passwort" required>
+			</fieldset>
+			
+			
+			<textarea name="Nachricht" placeholder="Ihre Nachricht an uns"></textarea>
+						
+			<input type="checkbox" name="AGB" value="gelesen">
+			<input type="submit" value="abschicken">
+			<!--<button type="submit">ab<strong><br>schick<br></strong>en</button>-->
+		</form>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+1. Login
+- Formular erstellen
+- POST-Daten nach dem Abschicken des Formulares darstellen, um sie zu verstehen
+- POST-Daten auswerten:
+  - nachsehen, ob POST-Daten vorhanden sind
+  - SQL-Statement für die Abfrage des Passwortes, etc. für den User definieren, der sich versucht anzumelden
+  - Ergebnis der Abfrage auswerten: gelesenes Passwort mit eingegebenem Passwort vergleichen:
+    - gleich: SESSION-Daten setzen und weiterleiten auf geschützte Seite
+    - nicht gleich: Fehlermeldung an den User
+
+2. Redaktionssystem:
+- Überprüfen, ob User eingeloggt ist
+- Sämtliche Daten der Tabelle tbl_user in Form einer HTML-Tabelle darstellen:
+  - zunächst alle Daten darstellen
+  - dann auf die Benutzerberechtigungen des eingeloggten Users Rücksicht nehmen
+- Formular erzeugen, wo der eingeloggte User einen neuen User anlegen kann (inkl. zugehörigem SQL-Statement für die Serverseite)
+- Formular erweitern, um bestehende Userdaten abändern zu können (inkl. zugehörigem SQL-Statement für die Serverseite):
+  - UPD-Button übergibt an eine JS-Funktion die ID des Users, dessen Daten geändert werden sollen
+  - JS-Funktion schreibt diese ID in ein verstecktes Formularfeld
+  - JS-Funktion schreibt in zweites Formularfeld hinein, was zu tun ist (wasTun="aktualisieren" oä)
+  - JS-Funktion schickt das Formular ab
+- Formular erweitern, um bestehende User löschen zu können (nur Admin, Superadmin; Vorgehensweise wie oben)

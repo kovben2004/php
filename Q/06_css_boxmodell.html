@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<title>Boxmodell</title>
+		<meta charset="utf-8">
+		<style>
+			p {
+				background-color:lightgray;
+				width:300px;
+				height:190px;
+				overflow:auto;
+				/* Platzbedarf: 300x190px */
+				
+				padding:20px; /* alle vier Seiten */
+				/* Platzbedarf: 340x230px */
+
+				padding-left:100px; /* padding-right, padding-top, padding-bottom */
+				/* Platzbedarf: 420x230px */
+				
+				border:10px solid blue; /* "ein 10 Pixel breiter (10px), durchgezogener (solid), blauer Rahmen (blue)" */
+				/* Platzbedarf: 440x250px */
+				border-right-width:5px;
+				/* Platzbedarf: 435x250px */
+				border-top-color:green;
+				border-bottom-style:dotted;
+				
+				margin:0px;
+			}
+			#a {
+				margin-bottom:50px;
+			}
+			#b {
+				margin-top:75px;
+				box-sizing:border-box;
+				/* Platzbedarf: 300x190px */
+			}
+			
+			#s0 {
+				background-color:yellow;
+				width:50px; /* klappt nicht */
+				height:50px; /* klappt nicht */
+				padding:10px;
+				border:2px solid green;
+				margin:20px; /* klappt nur links/rechts */
+				
+				display:inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="a">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed <span id="s0">diam</span> voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+		<p id="b">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<title>Formulare</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<form method="post" enctype="multipart/form-data">
+			<label>
+				Ihr Vorname:
+				<input type="text" name="VN">
+			</label>
+			
+			<label for="Nachname">Ihr Nachname:</label>
+			<input type="text" name="NN" required id="Nachname">
+			
+			<input type="email" name="E" placeholder="Ihre Emailadresse" required>
+			<input type="password" name="P" placeholder="Ihr Passwort" required>
+			<input type="date" name="GD" placeholder="Ihr Geburtsdatum" value="1972-10-17">
+			
+			<input type="radio" name="Geschlecht" value="weiblich" checked>
+			<input type="radio" name="Geschlecht" value="männlich">
+			<input type="radio" name="Geschlecht" value="divers">
+			<input type="checkbox" name="AGB" value="gelesen">
+			
+			<select name="GebLand">
+				<option value="at">Österreich</option>
+				<option value="it">Italien</option>
+				<option value="es" selected>Spanien</option>
+			</select>
+			
+			<textarea name="Nachricht" placeholder="Ihre Nachricht an uns"></textarea>
+			
+			<input type="file" name="Profilfoto"><!-- Auswahl einer einzigen Datei -->
+			<input type="file" name="Dokumente[]" multiple><!-- Auswahl beliebig vieler Dateien -->
+			
+			<input type="submit" value="abschicken">
+			<!--<button type="submit">ab<strong><br>schick<br></strong>en</button>-->
+		</form>
+	</body>
+</html>
