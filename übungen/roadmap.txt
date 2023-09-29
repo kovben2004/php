@@ -1,0 +1,23 @@
+11) 1x input field (suchen innerhalb Tabelle)
+13) 2. input field hinzufügen (z.B nn)
+1) connection parameter setzen ($host="localhost")
+2) connection herstellen ($conn= new mysqli("$host", "$username", "$password", "$db");)
+3) connect errno? dann die und connect error
+4) $sql (SELECT *)
+12) $_POST user eingabe ($eingabe) in sql-statement einfügen, mit LIKE
+14) if-statements in $sql einbauen: nur eines von denen kann stimmen (sonst wird $sql überschrieben):
+    entweder beides eingegeben (vn und nn)
+    else if nur nn eingegeben
+    else if nur vn eingegeben
+    else nichts eingegeben, darum SELECT *
+5) sql-Abfrage abschicken, Ergebnis/Antwort von Datenbank in $result speichern: $result=mysqli_query($1,$2)
+6) echo table start
+7) $result->num_rows > 0 (else "Suchergebnisse nicht gefunden")
+8) while ($row = mysqli_fetch_assoc($result)){
+9) table headings
+10) echo "<tr> <td>" . $row["ID_lehrer"]
+
+
+1-10: ganze Tabelle zeigen
+11-12 : nach einem einzigen Feld/Begriff suchen (z.B: Vorname)
+13- : nach 2 Feldern/Begriffen suchen (z.B: Vorname UND ODER Nachname, kann beides leer gelassen werden)
